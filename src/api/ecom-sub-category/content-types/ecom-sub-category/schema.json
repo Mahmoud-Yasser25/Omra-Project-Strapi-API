@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ecom_sub_categories",
+  "info": {
+    "singularName": "ecom-sub-category",
+    "pluralName": "ecom-sub-categories",
+    "displayName": "ecomSubCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "ecom_products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ecom-product.ecom-product",
+      "mappedBy": "ecom_sub_categories"
+    },
+    "ecom_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ecom-category.ecom-category",
+      "mappedBy": "ecom_sub_categories"
+    }
+  }
+}

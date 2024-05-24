@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ecom_orders",
+  "info": {
+    "singularName": "ecom-order",
+    "pluralName": "ecom-orders",
+    "displayName": "ecomOrder"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ecom_products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ecom-product.ecom-product",
+      "inversedBy": "ecom_orders"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "ecom_orders"
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "notes": {
+      "type": "text"
+    },
+    "totalMoney": {
+      "type": "decimal",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "default": "pending",
+      "required": false
+    }
+  }
+}

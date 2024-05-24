@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurant_items",
+  "info": {
+    "singularName": "restaurant-item",
+    "pluralName": "restaurant-items",
+    "displayName": "restaurantItem"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "img2": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "isNew": {
+      "type": "boolean",
+      "default": false
+    },
+    "restaurant_website": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::restaurant-website.restaurant-website",
+      "inversedBy": "restaurant_items"
+    },
+    "restaurant_items_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::restaurant-items-category.restaurant-items-category",
+      "mappedBy": "restaurant_items"
+    },
+    "restaurant_carts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::restaurant-cart.restaurant-cart",
+      "mappedBy": "restaurant_items"
+    },
+    "restaurant_orders": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::restaurant-order.restaurant-order",
+      "mappedBy": "restaurant_items"
+    }
+  }
+}

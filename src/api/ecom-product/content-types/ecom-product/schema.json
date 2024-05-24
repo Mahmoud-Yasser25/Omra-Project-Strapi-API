@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ecom_products",
+  "info": {
+    "singularName": "ecom-product",
+    "pluralName": "ecom-products",
+    "displayName": "ecomProduct",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "img2": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isNew": {
+      "type": "boolean",
+      "default": false
+    },
+    "ecom_website": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ecom-website.ecom-website",
+      "inversedBy": "ecom_products"
+    },
+    "ecom_sub_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ecom-sub-category.ecom-sub-category",
+      "inversedBy": "ecom_products"
+    },
+    "ecom_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ecom-category.ecom-category",
+      "inversedBy": "ecom_products"
+    },
+    "ecom_carts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ecom-cart.ecom-cart",
+      "mappedBy": "ecom_products"
+    },
+    "ecom_orders": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ecom-order.ecom-order",
+      "mappedBy": "ecom_products"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurant_orders",
+  "info": {
+    "singularName": "restaurant-order",
+    "pluralName": "restaurant-orders",
+    "displayName": "restaurantOrder"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "restaurant_items": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::restaurant-item.restaurant-item",
+      "inversedBy": "restaurant_orders"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "restaurant_orders"
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "notes": {
+      "type": "text"
+    },
+    "totalMoney": {
+      "type": "decimal",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "default": "pending"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ecom_websites",
+  "info": {
+    "singularName": "ecom-website",
+    "pluralName": "ecom-websites",
+    "displayName": "ecomWebsite"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "img2": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "ecom_products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ecom-product.ecom-product",
+      "mappedBy": "ecom_website"
+    }
+  }
+}

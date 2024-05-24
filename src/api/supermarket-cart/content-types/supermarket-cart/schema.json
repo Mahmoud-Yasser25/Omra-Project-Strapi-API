@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "supermarket_carts",
+  "info": {
+    "singularName": "supermarket-cart",
+    "pluralName": "supermarket-carts",
+    "displayName": "supermarketCart"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "supermarket_items": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::supermarket-item.supermarket-item",
+      "inversedBy": "supermarket_carts"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "supermarket_carts"
+    }
+  }
+}

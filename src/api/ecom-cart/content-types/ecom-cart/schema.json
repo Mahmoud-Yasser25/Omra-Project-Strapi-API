@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ecom_carts",
+  "info": {
+    "singularName": "ecom-cart",
+    "pluralName": "ecom-carts",
+    "displayName": "ecomCart"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ecom_products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ecom-product.ecom-product",
+      "inversedBy": "ecom_carts"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "ecom_carts"
+    }
+  }
+}

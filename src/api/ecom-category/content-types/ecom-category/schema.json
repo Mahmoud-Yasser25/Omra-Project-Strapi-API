@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ecom_categories",
+  "info": {
+    "singularName": "ecom-category",
+    "pluralName": "ecom-categories",
+    "displayName": "ecomCategory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "ecom_products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ecom-product.ecom-product",
+      "mappedBy": "ecom_categories"
+    },
+    "ecom_sub_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ecom-sub-category.ecom-sub-category",
+      "inversedBy": "ecom_categories"
+    }
+  }
+}

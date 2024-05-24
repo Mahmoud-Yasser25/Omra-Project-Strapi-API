@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sup_items_categories",
+  "info": {
+    "singularName": "sup-items-category",
+    "pluralName": "sup-items-categories",
+    "displayName": "supItemsCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "supermarket_items": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::supermarket-item.supermarket-item",
+      "inversedBy": "sup_items_categories"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurant_websites",
+  "info": {
+    "singularName": "restaurant-website",
+    "pluralName": "restaurant-websites",
+    "displayName": "restaurantWebsite"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "img2": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "restaurant_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::restaurant-item.restaurant-item",
+      "mappedBy": "restaurant_website"
+    }
+  }
+}

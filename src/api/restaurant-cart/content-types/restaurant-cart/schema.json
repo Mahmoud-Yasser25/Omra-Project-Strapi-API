@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurant_carts",
+  "info": {
+    "singularName": "restaurant-cart",
+    "pluralName": "restaurant-carts",
+    "displayName": "restaurantCart"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "restaurant_items": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::restaurant-item.restaurant-item",
+      "inversedBy": "restaurant_carts"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "restaurant_carts"
+    }
+  }
+}

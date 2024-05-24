@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "supermarket_items",
+  "info": {
+    "singularName": "supermarket-item",
+    "pluralName": "supermarket-items",
+    "displayName": "supermarketItem"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "img2": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "isNew": {
+      "type": "boolean",
+      "default": false
+    },
+    "supermarket_website": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::supermarket-website.supermarket-website",
+      "inversedBy": "supermarket_items"
+    },
+    "sup_items_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sup-items-category.sup-items-category",
+      "mappedBy": "supermarket_items"
+    },
+    "supermarket_carts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::supermarket-cart.supermarket-cart",
+      "mappedBy": "supermarket_items"
+    },
+    "supermarket_orders": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::supermarket-order.supermarket-order",
+      "mappedBy": "supermarket_items"
+    }
+  }
+}
